@@ -362,7 +362,7 @@
                                                     }
                                                     ?>' placeholder=" " <?php
                                                            if (!empty($payment->deposit_type)) {
-                                                               if ($payment->deposit_type == 'Card' || $payment->deposit_type == 'Mpesa') {
+                                                               if ($payment->deposit_type == 'Card' ) {
                                                                    echo 'readonly';
                                                                }
                                                            }
