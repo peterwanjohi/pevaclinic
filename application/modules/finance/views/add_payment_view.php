@@ -397,7 +397,7 @@
                                                         <label for="exampleInputEmail1"><?php echo lang('mpesa_transaction_code'); ?></label>
                                                     </div>
                                                     <div class=""> 
-                                                        <input type="text" class="form-control pay_in" name="mpesa_code" id="mpesa_code" style="text-transform:uppercase" value='' required/>
+                                                        <input type="text" class="form-control pay_in" name="mpesa_code" id="mpesa_code" style="text-transform:uppercase" value=''/>
                                                     </div>
                                                     </div>
 
