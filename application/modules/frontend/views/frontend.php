@@ -71,11 +71,11 @@
             <div class="navbar-wrap">
                 <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light custom-nav">
                     <div class="container">
-                        <a class="navbar-brand logo" href="frontend#">
+                        <a class="navbar-brand " href="frontend#">
                             <?php
                             if (!empty($settings->logo)) {
                                 if (file_exists($settings->logo)) {
-                                    echo '<img width="200" src=' . $settings->logo . '>';
+                                    echo '<img class="logo" width="200" src=' . $settings->logo . '>';
                                 } else {
                                     echo $title[0] . '<span> ' . $title[1] . '</span>';
                                 }
