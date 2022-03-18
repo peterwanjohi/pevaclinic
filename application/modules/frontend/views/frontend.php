@@ -37,6 +37,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
     </head>
     <style>
+        
         .topbar-texts, .footer-description {
             font-family: "Roboto", sans-serif !important;
             font-size: 15px !important;
@@ -68,9 +69,9 @@
         </div>
         <div id="header">
             <div class="navbar-wrap">
-                <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light bg-light">
+                <nav id="navbar_top" class="navbar navbar-expand-lg navbar-light custom-nav">
                     <div class="container">
-                        <a class="navbar-brand" href="frontend#">
+                        <a class="navbar-brand logo" href="frontend#">
                             <?php
                             if (!empty($settings->logo)) {
                                 if (file_exists($settings->logo)) {
@@ -482,6 +483,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801983917701!2d36.79113861475387!3d-1.2932694990567293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe33add962384e14c!2zMcKwMTcnMzUuOCJTIDM2wrA0NyczNi4wIkU!5e0!3m2!1sen!2ske!4v1647586117923!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         <!---------------- End Footer Area ---------------->
 
