@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <link rel="icon" href="../../../../favicon.ico" />
+        <link rel="icon" href="uploads/pyramid_dental_logo.png" /> <!-- Upload image to upload folder-->
         <title><?php echo $site_name; ?></title>
 
         <!-- Bootstrap Core CSS -->
@@ -41,6 +41,10 @@
         .topbar-texts, .footer-description {
             font-family: "Roboto", sans-serif !important;
             font-size: 15px !important;
+        }
+
+        .buttonFront {
+            background-color: #CE922D !important ;
         }
 
 
@@ -119,7 +123,8 @@
                                 <h1><?php echo $slide->text1; ?></h1>
                                 <h4><?php echo $slide->text2; ?></h4>
                                 <p class="py-4"><?php echo $slide->text3; ?></p>
-                                <a type="button" href="#why_choose_us" class="btn btn-light"><?php echo lang('get_started_now'); ?></a>
+                                <!-- <a type="button" href="#why_choose_us" class="btn btn-light buttonFront">Book an Appointment</a> -->
+                                <a type="button" data-toggle="modal" data-target="#exampleModal" href="#" class="btn btn-light buttonFront">Book An Appointment</a>
                             </div>
                         </div>
                     </div>
@@ -179,7 +184,7 @@
                             <p>
                                 <?php echo $settings->appointment_description; ?>
                             </p>
-                            <a type="button" data-toggle="modal" data-target="#exampleModal" href="#" class="btn btn-light">Book An Appointment</a>
+                            <a type="button" data-toggle="modal" data-target="#exampleModal" href="#" class="btn btn-light buttonFront">Book An Appointment</a>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -481,6 +486,10 @@
                             <strong><?php echo lang('email'); ?>: <?php echo $settings->email; ?></strong>
                         </address>
                     </div>
+                </div>
+                <!-- Copyright Text -->
+                <div class="d-flex justify-content-end">
+                    <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> The Pyramid Dental Clinic</p>
                 </div>
             </div>
         </div>
