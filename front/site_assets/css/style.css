@@ -362,4 +362,9 @@ h6 {
     font-size: 14px;
 }
 
+#footer ul li {
+    list-style-type: none;
+    /* text-align: left; */
+}
+
 /*................ ====> End Stylesheet File .................*/

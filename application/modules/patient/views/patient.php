@@ -89,12 +89,6 @@
                         <input type="text" class="form-control" name="email" id="exampleInputEmail1" value='' placeholder="">
                     </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('password'); ?></label>
-                        <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="">
-                    </div>
-
-
 
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('address'); ?></label>
@@ -140,7 +134,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="exampleInputEmail1"><?php echo lang('blood_group'); ?></label>
-                        <select class="form-control m-bot15" name="bloodgroup" value=''>
+                        <select class="form-control m-bot15" name="bloodgroup" value='' style="display: none;">
                             <?php foreach ($groups as $group) { ?>
                                 <option value="<?php echo $group->group; ?>" <?php
                                 if (!empty($patient->bloodgroup)) {
@@ -198,6 +192,26 @@
                     <div class="form-group col-md-6">
                         <input type="checkbox" name="sms" value="sms"> <?php echo lang('send_sms') ?><br>
                     </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1" style="display: none;"><?php echo lang('password'); ?></label>
+                        <input type="password" class="form-control" style="display: none;" name="password" id="exampleInputEmail1" value="12345" placeholder="">
+                    </div>
+
+                    <div class="form-group col-md-6" >
+                        <label for="exampleInputEmail1" style="display: none;"><?php echo lang('blood_group'); ?></label>
+                        <select class="form-control m-bot15" name="bloodgroup" value='' style="display: none;">
+                            <?php foreach ($groups as $group) { ?>
+                                <option value="<?php echo $group->group; ?>" <?php
+                                if (!empty($patient->bloodgroup)) {
+                                    if ($group->group == $patient->bloodgroup) {
+                                        echo 'selected';
+                                    }
+                                }
+                                ?> > <?php echo $group->group; ?> </option>
+                                    <?php } ?> 
+                        </select>
+                    </div>
 
 
                     <section class="col-md-12">
@@ -238,7 +252,7 @@
                         <input type="text" class="form-control" name="email" id="exampleInputEmail1" value='' placeholder="">
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-6" style="display: none;">
                         <label for="exampleInputEmail1"><?php echo lang('change'); ?><?php echo lang('password'); ?></label>
                         <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="">
                     </div>
@@ -285,22 +299,7 @@
                         <label><?php echo lang('birth_date'); ?></label>
                         <input class="form-control form-control-inline input-medium default-date-picker" type="text" name="birthdate" value="" placeholder="" readonly="">      
                     </div>
-
-
-                    <div class="form-group col-md-6">
-                        <label for="exampleInputEmail1"><?php echo lang('blood_group'); ?></label>
-                        <select class="form-control m-bot15" name="bloodgroup" value=''>
-                            <?php foreach ($groups as $group) { ?>
-                                <option value="<?php echo $group->group; ?>" <?php
-                                if (!empty($patient->bloodgroup)) {
-                                    if ($group->group == $patient->bloodgroup) {
-                                        echo 'selected';
-                                    }
-                                }
-                                ?> > <?php echo $group->group; ?> </option>
-                                    <?php } ?> 
-                        </select>
-                    </div>
+                  
 
                     <div class="form-group col-md-6">    
                         <label for="exampleInputEmail1"><?php echo lang('doctor'); ?></label>

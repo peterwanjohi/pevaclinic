@@ -68,9 +68,9 @@
                                             ?>' placeholder="">
                                         </div>
 
-                                        <div class="form-group">        
+                                        <div class="form-group" style="display: none;">        
                                             <label for="exampleInputEmail1"><?php echo lang('password'); ?></label>
-                                            <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="">
+                                            <input type="password" class="form-control" name="password" id="exampleInputEmail1" placeholder="12345" value="12345">
                                         </div>
 
                                         <div class="form-group">
@@ -149,9 +149,9 @@
                                             ?>" placeholder="">      
                                         </div>
 
-                                        <div class="form-group">
+                                        <div class="form-group" style="display: none;">
                                             <label for="exampleInputEmail1"><?php echo lang('blodd_group'); ?></label>
-                                            <select class="form-control m-bot15" name="bloodgroup" value=''>
+                                            <select class="form-control m-bot15" name="bloodgroup" value='' >
                                                 <?php foreach ($groups as $group) { ?>
                                                     <option value="<?php echo $group->group; ?>" <?php
                                                     if (!empty($setval)) {

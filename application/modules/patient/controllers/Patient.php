@@ -57,7 +57,7 @@ class Patient extends MX_Controller {
     }
 
     public function addNew() {
-
+        
         if ($this->ion_auth->in_group(array('Patient'))) {
             redirect('home/permission');
         }
