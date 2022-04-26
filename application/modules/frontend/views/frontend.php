@@ -477,6 +477,30 @@
                             </div>
 
                         </div>
+                        <div class="working-hours">
+                            <h6 class="my-2">Working Hours</h6>
+                            <p>
+                                <span>Monday</span> : 8am - 7pm
+                            </p>
+                            <p>
+                                <span>Tuesday</span> : 8am - 7pm
+                            </p>
+                            <p>
+                                <span>Wednesday</span> : 8am - 7pm
+                            </p>
+                            <p>
+                                <span>Thursday</span> : 8am - 7pm
+                            </p>
+                            <p>
+                                <span>Friday</span> : 8am - 7pm
+                            </p>
+                            <p>
+                                <span>Saturday</span> : 8am - 5pm
+                            </p>
+                            <p>
+                                <span>Sunday</span> : Closed
+                            </p>
+                        </div>
                     </div>
                     <div class="col-md-3">
                         <h6 class="my-2"><?php echo lang('CONTACT_INFO'); ?></h6>
