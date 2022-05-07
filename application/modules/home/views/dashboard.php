@@ -527,7 +527,19 @@
                                     <li><a  href="finance/addExpenseView"><i class="fa fa-plus-circle"></i><?php echo lang('add_expense'); ?></a></li>
                                     <li><a  href="finance/expenseCategory"><i class="fa fa-edit"></i><?php echo lang('expense_categories'); ?> </a></li>
 
+                                </ul>
+                            </li> 
+                        <?php } ?>
 
+                        <?php if ($this->ion_auth->in_group('admin')) { ?>
+                            <li class="sub-menu">
+                                <a href="javascript:;" >
+                                    <i class="fa fa-warehouse"></i>
+                                    <span>Inventory</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a  href="inventory/inventoryList"><i class="fa fa-warehouse"></i>Inventory</a></li>
+                                    <li><a  href="inventory/addInventoryItemView"><i class="fa fa-plus-circle"></i> Add Inventory Item</a></li>
                                 </ul>
                             </li> 
                         <?php } ?>

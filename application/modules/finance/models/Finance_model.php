@@ -664,7 +664,7 @@ class Finance_model extends CI_model {
         return $query->result();
     }
 
-    function getExpenseWithoutSearch() {
+    function getExpenseWithoutSearch($order, $dir) {
         if ($order != null) {
             $this->db->order_by($order, $dir);
         } else {
