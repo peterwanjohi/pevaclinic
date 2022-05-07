@@ -99,9 +99,14 @@ class Inventory extends MX_Controller {
                 $data['quantity'] = $quantity;
                 $data['purchase_date'] = $purchase_date;
                 $data['expiry_date'] = $expiry_date;
-                $data['created_by'] = $this->ion_auth->user()->row()->id;
-                $data['created_at'] = date('Y-m-d H:i:s');
+                $data['created_at'] = time();
 
+                if (!empty($_FILES['image_url']['name'])) {
+                    
+                    $upload_data = $this->file_upload_model->upload_image($_FILES['image_url']['name'], 'image_url');
+    
+                    $data['image_url'] = "uploads/" . $upload_data['upload_data']['file_name'];
+                }
 
                 $this->inventory_model->updateInventoryItem($id, $data);
                 $this->session->set_flashdata('feedback', 'Updated');
@@ -115,10 +120,11 @@ class Inventory extends MX_Controller {
 
                 
                 // upload image using helper                
-
+                if (!empty($_FILES['image_url']['name'])) {
                 $upload_data = $this->file_upload_model->upload_image($_FILES['image_url']['name'], 'image_url');
 
                 $data['image_url'] = "uploads/" . $upload_data['upload_data']['file_name'];
+                }
 
                 $this->inventory_model->insertInventoryItem($data);
                 $this->session->set_flashdata('feedback', 'Added');
@@ -127,6 +133,22 @@ class Inventory extends MX_Controller {
             redirect('inventory/inventoryList');
         }
 
+    }
+
+    public function editInventoryItemView () {
+        if (!$this->ion_auth->logged_in()) {
+            redirect('auth/login', 'refresh');
+        }
+        
+        $id = $this->input->get('id');
+        $data = array();
+        $data['inventory'] = $this->inventory_model->getInventoryItemById($id);
+
+        // var_dump($data['inventory']['invoice_number']);
+        // die();
+        $this->load->view('home/dashboard'); // just the header file
+        $this->load->view('inventory/add_inventory_item', $data);
+        $this->load->view('home/footer'); // just the footer file
     }
 
     public function deleteItem() {

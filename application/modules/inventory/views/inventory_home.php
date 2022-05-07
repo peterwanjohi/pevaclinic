@@ -23,11 +23,12 @@
                     <table class="table table-striped table-hover table-bordered" id="editable-sample">
                         <thead>
                             <tr>
-                                <th class="no-print">image</th>
+                                <th >image</th>
                                 <th>Name</th>
+                                <th>Invoice N.O</th>
+                                <th>Items on hand</th>
                                 <th>Purchase Date</th>
                                 <th>Expiry Date</th>
-                                <th>Items on hand</th>
                                 <?php if ($this->ion_auth->in_group('admin')) { ?>
                                 <th class="no-print"><?php echo lang('options'); ?></th>
                                 <?php } ?>
@@ -50,16 +51,17 @@
                                 # code...
                             foreach ($inventory_items as $item) { ?>
                                 <tr class="">
-                                    <td style="width:10%;"><img style="width:95%;" src="<?php echo $item->image_url; ?>">
+                                    <td  style="width:10%;"><img style="width:95%;" src="<?php echo $item->image_url; ?>">
                                     </td>
                                     <td><?php echo $item->name; ?></td>
+                                    <td><?php echo $item->invoice_number; ?></td>
+                                    <td> <?php echo $item->quantity; ?></td>
                                     <td> <?php echo date('m/d/y', $item->purchase_date);  ?> </td>
                                     <td><?php echo date('m/d/y', $item->expiry_date); ?></td>
-                                    <td> <?php echo $item->quantity; ?></td>
                                     <?php if ($this->ion_auth->in_group('admin')) { ?>
                                     <td class="no-print">
                                         <a class="btn btn-info btn-xs editbutton" title="<?php echo lang('edit'); ?>"
-                                            href="inventory/editInventoryItem?id=<?php echo $item->id; ?>"><i
+                                            href="inventory/editInventoryItemView?id=<?php echo $item->id; ?>"><i
                                                 class="fa fa-edit"></i> </a>
                                         <a class="btn btn-info btn-xs delete_button" title="<?php echo lang('delete'); ?>"
                                             href="inventory/deleteItem?id=<?php echo $item->id; ?>"

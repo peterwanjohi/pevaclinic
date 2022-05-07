@@ -23,7 +23,7 @@ class Inventory_model extends CI_model {
         $this->db->from('inventory');
         $this->db->where('id', $id);
         $query = $this->db->get();
-        return $query->row_array();
+        return $query->row();
     }
 
     function insertInventoryItem($data) {

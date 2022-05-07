@@ -20,11 +20,13 @@
                             <div class="form-group col-md-12">
                                 <label for="invoice_number">Invoice number</label>
                                 <input type="text" class="form-control" name="invoice_number" id="invoice_number" value="<?php
-                                            if(!empty($setval)){
-                                                echo set_value('invoice_number');
-                                            }
-                                        ?>"
-                                    >
+                                    if(!empty($setval)){
+                                        echo set_value('invoice_number');
+                                    }
+                                    if (!empty($inventory->invoice_number)) {
+                                        echo $inventory->invoice_number;
+                                    }
+                                ?>">
                             </div>
                             <div class="row col-md-12">
                                 <div class="form-group col-md-6">
@@ -34,7 +36,10 @@
                                             if(!empty($setval)){
                                                 echo set_value('name');
                                             }
-                                        ?>" >
+                                            if (!empty($inventory->name)) {
+                                                echo $inventory->name;
+                                            }
+                                        ?>">
                                 </div>
 
                                 <div class="form-group col-md-6">
@@ -43,6 +48,9 @@
                                         placeholder="quantity purchased" value="<?php
                                             if(!empty($setval)){
                                                 echo set_value('quantity');
+                                            }
+                                            if (!empty($inventory->quantity)) {
+                                                echo $inventory->quantity;
                                             }
                                         ?>" required>
                                 </div>
@@ -57,6 +65,9 @@
                                             if(!empty($setval)){
                                                 echo set_value('purchase_date');
                                             }
+                                            if (!empty($inventory->purchase_date)) {
+                                                echo date('d-m-Y', $inventory->purchase_date);
+                                            }
                                         ?>" placeholder="mm-dd-yyyy" required>
                                 </div>
 
@@ -67,13 +78,22 @@
                                             if(!empty($setval)){
                                                 echo set_value('expiry_date');
                                             }
+                                            if (!empty($inventory->expiry_date)) {
+                                                echo date('d-m-Y', $inventory->expiry_date) ;
+                                            }
                                         ?>" placeholder="mm-dd-yyyy">
                                 </div>
 
                             </div>
 
                             <div class="form-group col-md-12">
-                                <img src="" alt="" id="img_preview"
+                                <img src="
+                                <?php
+                                if(!empty($inventory->image_url)){
+                                    echo base_url().$inventory->image_url;
+                                }
+                                ?>
+                                " alt="" id="img_preview"
                                     style="width: 200px; height:200px; border:2px solid gray;" width="500px">
                             </div>
                             <div class="form-group col-md-6">
@@ -84,13 +104,14 @@
 
 
                             <input type="hidden" name="id" value='<?php
-                            if (!empty($item->id)) {
-                                echo $item->id;
+                            if (!empty($inventory->id)) {
+                                echo $inventory->id;
                             }
                             ?>'>
                             <div class="form-group col-md-12">
                                 <button type="submit" name="submit"
-                                    class="btn btn-info pull-right"><?php echo lang('submit'); ?></button>
+                                    class="btn btn-info pull-right"><?php echo lang('submit'); ?>
+                                </button>
                             </div>
                         </form>
                     </div>
