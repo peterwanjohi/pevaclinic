@@ -147,11 +147,11 @@ class Finance extends MX_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-// Validating Category Field
-// $this->form_validation->set_rules('category_amount[]', 'Category', 'min_length[1]|max_length[100]');
-// Validating Price Field
+        // Validating Category Field
+        // $this->form_validation->set_rules('category_amount[]', 'Category', 'min_length[1]|max_length[100]');
+        // Validating Price Field
         $this->form_validation->set_rules('patient', 'Patient', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Price Field
+        // Validating Price Field
         $this->form_validation->set_rules('discount', 'Discount', 'trim|min_length[1]|max_length[100]|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
@@ -170,7 +170,7 @@ class Finance extends MX_Controller {
                     'how_added' => 'from_pos'
                 );
                 $username = $this->input->post('p_name');
-// Adding New Patient
+            // Adding New Patient
                 if ($this->ion_auth->email_check($p_email)) {
                     $this->session->set_flashdata('feedback', lang('this_email_address_is_already_registered'));
                     redirect('finance/addPaymentView');
@@ -183,7 +183,7 @@ class Finance extends MX_Controller {
                     $id_info = array('ion_user_id' => $ion_user_id);
                     $this->patient_model->updatePatient($patient_user_id, $id_info);
                 }
-//    }
+        //    }
             }
 
             if (!empty($d_name)) {
@@ -194,7 +194,7 @@ class Finance extends MX_Controller {
                     'phone' => $d_phone,
                 );
                 $username = $this->input->post('d_name');
-// Adding New Patient
+        // Adding New Patient
                 if ($this->ion_auth->email_check($d_email)) {
                     $this->session->set_flashdata('feedback', lang('this_email_address_is_already_registered'));
                     redirect('finance/addPaymentView');
@@ -217,17 +217,6 @@ class Finance extends MX_Controller {
             if ($doctor == 'add_new') {
                 $doctor = $doctor_user_id;
             }
-
-
-
-
-
-
-
-
-
-
-
 
             $amount = array_sum($amount_by_category);
             $sub_total = $amount;
@@ -754,40 +743,40 @@ class Finance extends MX_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-// Validating Patient Field
+        // Validating Patient Field
         $this->form_validation->set_rules('patient', 'Patient', 'trim|required|min_length[2]|max_length[100]|xss_clean');
-// Validating Consultant surgeon Field
+        // Validating Consultant surgeon Field
         $this->form_validation->set_rules('doctor_c_s', 'Consultant surgeon', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Assistant Surgeon Field
+        // Validating Assistant Surgeon Field
         $this->form_validation->set_rules('doctor_a_s_1', 'Assistant Surgeon (1)', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Assistant Surgeon Field
+        // Validating Assistant Surgeon Field
         $this->form_validation->set_rules('doctor_a_s_2', 'Assistant Surgeon(2)', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Anaesthisist Field
+        // Validating Anaesthisist Field
         $this->form_validation->set_rules('doctor_anaes', 'Anaesthisist', 'trim|min_length[2]|max_length[100]|xss_clean');
-// Validating Nature Of Operation Field
+        // Validating Nature Of Operation Field
         $this->form_validation->set_rules('n_o_o', 'Nature Of Operation', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Consultant Surgeon Fee Field
+        // Validating Consultant Surgeon Fee Field
         $this->form_validation->set_rules('c_s_f', 'Consultant Surgeon Fee', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Assistant surgeon fee Field
+        // Validating Assistant surgeon fee Field
         $this->form_validation->set_rules('a_s_f_1', 'Assistant surgeon fee', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Assistant surgeon fee Field
+        // Validating Assistant surgeon fee Field
         $this->form_validation->set_rules('a_s_f_2', 'Assistant surgeon fee', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Anaesthesist Field
+        // Validating Anaesthesist Field
         $this->form_validation->set_rules('anaes_f', 'Anaesthesist', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating OT Charge Field
+        // Validating OT Charge Field
         $this->form_validation->set_rules('ot_charge', 'OT Charge', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Cabin Rent Field
+        // Validating Cabin Rent Field
         $this->form_validation->set_rules('cab_rent', 'Cabin Rent', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Seat Rent Field
+        // Validating Seat Rent Field
         $this->form_validation->set_rules('seat_rent', 'Seat Rent', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Others Field
+        // Validating Others Field
         $this->form_validation->set_rules('others', 'Others', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Discount Field
+        // Validating Discount Field
         $this->form_validation->set_rules('discount', 'Discount', 'trim|min_length[1]|max_length[100]|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
             echo 'form validate noe nai re';
-// redirect('accountant/add_new'); 
+        // redirect('accountant/add_new'); 
         } else {
             $doctor_fees = $c_s_f + $a_s_f_1 + $a_s_f_2 + $anaes_f;
             $hospital_fees = $ot_charge + $cab_rent + $seat_rent + $others;
@@ -1001,15 +990,15 @@ class Finance extends MX_Controller {
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-// Validating Category Name Field
+        // Validating Category Name Field
         $this->form_validation->set_rules('category', 'Category', 'trim|required|min_length[1]|max_length[100]|xss_clean');
-// Validating Description Field
+        // Validating Description Field
         $this->form_validation->set_rules('description', 'Description', 'trim|required|min_length[1]|max_length[100]|xss_clean');
-// Validating Description Field
+        // Validating Description Field
         $this->form_validation->set_rules('c_price', 'Category price', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Doctor Commission Rate Field
+        // Validating Doctor Commission Rate Field
         $this->form_validation->set_rules('d_commission', 'Doctor Commission rate', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Description Field
+        // Validating Description Field
         $this->form_validation->set_rules('type', 'Type', 'trim|min_length[1]|max_length[100]|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
@@ -1090,11 +1079,11 @@ class Finance extends MX_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 
-// Validating Category Field
+        // Validating Category Field
         $this->form_validation->set_rules('category', 'Category', 'trim|required|min_length[1]|max_length[100]|xss_clean');
-// Validating Generic Name Field
+        // Validating Generic Name Field
         $this->form_validation->set_rules('amount', 'Amount', 'trim|required|min_length[1]|max_length[100]|xss_clean');
-// Validating Note Field
+        // Validating Note Field
         $this->form_validation->set_rules('note', 'Note', 'trim|min_length[1]|max_length[100]|xss_clean');
 
 
@@ -1181,9 +1170,9 @@ class Finance extends MX_Controller {
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-// Validating Category Name Field
+        // Validating Category Name Field
         $this->form_validation->set_rules('category', 'Category', 'trim|required|min_length[1]|max_length[100]|xss_clean');
-// Validating Description Field
+        // Validating Description Field
         $this->form_validation->set_rules('description', 'Description', 'trim|required|min_length[1]|max_length[100]|xss_clean');
         if ($this->form_validation->run() == FALSE) {
             if (!empty($id)) {
@@ -1342,9 +1331,9 @@ class Finance extends MX_Controller {
 
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-// Validating Patient Name Field
+        // Validating Patient Name Field
         $this->form_validation->set_rules('patient', 'Patient', 'trim|min_length[1]|max_length[100]|xss_clean');
-// Validating Deposited Amount Field
+        // Validating Deposited Amount Field
         $this->form_validation->set_rules('deposited_amount', 'Deposited Amount', 'trim|min_length[1]|max_length[100]|xss_clean');
         if ($this->form_validation->run() == FALSE) {
             redirect('finance/patientPaymentHistory?patient=' . $patient);
@@ -1695,18 +1684,18 @@ class Finance extends MX_Controller {
         $data['expense_categories'] = $this->finance_model->getExpenseCategory();
 
 
-// if(empty($date_from)&&empty($date_to)) {
-//    $data['payments']=$this->finance_model->get_payment();
-//     $data['ot_payments']=$this->finance_model->get_ot_payment();
-//     $data['expenses']=$this->finance_model->get_expense();
-// }
-// else{
+        // if(empty($date_from)&&empty($date_to)) {
+        //    $data['payments']=$this->finance_model->get_payment();
+        //     $data['ot_payments']=$this->finance_model->get_ot_payment();
+        //     $data['expenses']=$this->finance_model->get_expense();
+        // }
+        // else{
 
         $data['payments'] = $this->finance_model->getPaymentByDate($date_from, $date_to);
         $data['ot_payments'] = $this->finance_model->getOtPaymentByDate($date_from, $date_to);
         $data['deposits'] = $this->finance_model->getDepositsByDate($date_from, $date_to);
         $data['expenses'] = $this->finance_model->getExpenseByDate($date_from, $date_to);
-// } 
+        // } 
         $data['from'] = $this->input->post('date_from');
         $data['to'] = $this->input->post('date_to');
         $data['settings'] = $this->settings_model->getSettings();
@@ -2321,9 +2310,9 @@ class Finance extends MX_Controller {
         $data['redirect'] = 'download';
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $mpdf->SetHTMLFooter('
-<div style="font-weight: bold; font-size: 8pt; font-style: italic;">
-     ' . lang('user') . ' : ' . $this->ion_auth->user($data['payment']->user)->row()->username . '
-</div>', 'O');
+        <div style="font-weight: bold; font-size: 8pt; font-style: italic;">
+            ' . lang('user') . ' : ' . $this->ion_auth->user($data['payment']->user)->row()->username . '
+        </div>', 'O');
         $html = $this->load->view('invoice', $data, true);
         $mpdf->WriteHTML($html);
 
@@ -2343,9 +2332,9 @@ class Finance extends MX_Controller {
         $data['redirect'] = 'download';
         $mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
         $mpdf->SetHTMLFooter('
-<div style="font-weight: bold; font-size: 8pt; font-style: italic;">
-     ' . lang('user') . ' : ' . $this->ion_auth->user($data['payment']->user)->row()->username . '
-</div>', 'O');
+        <div style="font-weight: bold; font-size: 8pt; font-style: italic;">
+            ' . lang('user') . ' : ' . $this->ion_auth->user($data['payment']->user)->row()->username . '
+        </div>', 'O');
         $html = $this->load->view('invoice', $data, true);
         $mpdf->WriteHTML($html);
 
