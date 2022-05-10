@@ -70,9 +70,9 @@ class Inventory extends MX_Controller {
         // Validating Purchase Date Field
         $this->form_validation->set_rules('purchase_date', 'Purchase Date', 'trim|required|min_length[1]|max_length[100]|xss_clean');
         // Validating Expiry Date Field
-        $this->form_validation->set_rules('expiry_date', 'Expiry Date', 'trim|required|min_length[1]|max_length[100]|xss_clean');
+        $this->form_validation->set_rules('expiry_date', 'Expiry Date', 'trim|min_length[1]|max_length[100]|xss_clean');
         // validating invoice number
-        $this->form_validation->set_rules('invoice_number', 'Invoice Number', 'trim|required|min_length[1]|max_length[100]|xss_clean');
+        $this->form_validation->set_rules('invoice_number', 'Invoice Number', 'trim|min_length[1]|max_length[100]|xss_clean');
         // Validating image type
 
         if ($this->form_validation->run() == FALSE) {
