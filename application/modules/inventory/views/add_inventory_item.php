@@ -5,7 +5,24 @@
         <!-- page start-->
         <section class="col-md-12">
             <header class="panel-heading">
-                Add Item
+                <?php  
+                    if(!empty($inventory->id)){
+                        echo 'Edit Instrument';
+                    }else{
+                        echo 'Add Instrument';
+                    } 
+                ?>
+
+
+                <div class="col-md-4 no-print pull-right">
+                    <a href="inventory/InventoryList">
+                        <div class="btn-group pull-right">
+                            <button id="" class="btn green btn-xs">
+                                <i class="fa fa-plus-circle"></i> Back
+                            </button>
+                        </div>
+                    </a>
+                </div>
             </header>
             <div class="panel-body">
                 <div class="adv-table editable-table ">
@@ -93,8 +110,8 @@
                                     echo base_url().$inventory->image_url;
                                 }
                                 ?>
-                                " alt="" id="img_preview"
-                                    style="width: 200px; height:200px; border:2px solid gray;" width="500px">
+                                " alt="" id="img_preview" style="width: 200px; height:200px; border:2px solid gray;"
+                                    width="500px">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="exampleInputEmail1">Image * <small>(400px * 400px for better
