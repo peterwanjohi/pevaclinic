@@ -60,12 +60,20 @@
                                         echo '-';
                                     }  ?></td>
                                 <td> <?php echo $item->quantity; ?></td>
-                                <td> <?php echo date('m/d/y', $item->purchase_date);  ?> </td>
-                                <td><?php  if($item->expiry_date){
+                                <td>
+                                    <?php  if($item->purchase_date){
+                                       echo date('m/d/y', $item->purchase_date);
+                                    }else{
+                                        echo '-';
+                                    }  ?>
+                                </td>
+                                <td>
+                                    <?php  if($item->expiry_date){
                                        echo date('m/d/y', $item->expiry_date);
                                     }else{
                                         echo '-';
-                                    }  ?></td>
+                                    }  ?>
+                                </td>
                                 <?php if ($this->ion_auth->in_group('admin')) { ?>
                                 <td class="no-print">
                                     <a class="btn btn-info btn-xs editbutton" title="<?php echo lang('edit'); ?>"
