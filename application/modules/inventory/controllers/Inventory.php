@@ -68,7 +68,7 @@ class Inventory extends MX_Controller {
         // Validating Quantity Field
         $this->form_validation->set_rules('quantity', 'Quantity', 'trim|required|min_length[1]|max_length[100]|xss_clean');
         // Validating Purchase Date Field
-        $this->form_validation->set_rules('purchase_date', 'Purchase Date', 'trim|required|min_length[1]|max_length[100]|xss_clean');
+        $this->form_validation->set_rules('purchase_date', 'Purchase Date', 'trim|min_length[1]|max_length[100]|xss_clean');
         // Validating Expiry Date Field
         $this->form_validation->set_rules('expiry_date', 'Expiry Date', 'trim|min_length[1]|max_length[100]|xss_clean');
         // validating invoice number
