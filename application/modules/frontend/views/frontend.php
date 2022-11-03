@@ -321,7 +321,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6" style="padding: 0;">
-                                <img loading="lazy" src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="" />
+                                <img  src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="" />
                             </div>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
                     <div class="featured_top">
                         <div class="row">
                             <div class="col-md-6" style="padding: 0;">
-                                <img  loading="lazy" src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="" />
+                                <img   src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="" />
                             </div>
                             <div class="col-md-6 d-flex align-items-center">
                                 <div class="text-center px-5">
