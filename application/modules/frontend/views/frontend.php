@@ -50,7 +50,7 @@
 
     </style>
     <body onload="myFunction()">
-        <div id="loading"></div>
+        <!-- <div id="loading"></div> -->
 
         <!---------------- Start Main Navbar ---------------->
         <div id="header_menu_top" class="bg-dark text-white pt-3">
@@ -79,7 +79,7 @@
                             <?php
                             if (!empty($settings->logo)) {
                                 if (file_exists($settings->logo)) {
-                                    echo '<img class="logo" width="200" src=' . $settings->logo . '>';
+                                    echo '<img class="logo img-fluid" width="200" src=' . $settings->logo . '>';
                                 } else {
                                     echo $title[0] . '<span> ' . $title[1] . '</span>';
                                 }
@@ -291,7 +291,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-center">
-                        <img src="<?php echo $settings->appointment_img_url; ?>" class="img-fluid" alt="Doctor" />
+                        <img loading="lazy" src="<?php echo $settings->appointment_img_url; ?>" class="img-fluid" alt="Doctor" />
                     </div>
                 </div>
             </div>
@@ -299,8 +299,9 @@
         <!---------------- End Why Choose Us ---------------->
 
         <!---------------- Start Featured Area ---------------->
+        <div class="container">
         <div id="featured" class="text-white">
-            <?php
+                 <?php
             $gridCount = 0;
             foreach ($gridsections as $gridsection) {
                 $gridCount++;
@@ -320,7 +321,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6" style="padding: 0;">
-                                <img src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="" />
+                                <img loading="lazy" src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="" />
                             </div>
                         </div>
                     </div>
@@ -330,7 +331,7 @@
                     <div class="featured_top">
                         <div class="row">
                             <div class="col-md-6" style="padding: 0;">
-                                <img src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="" />
+                                <img  loading="lazy" src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="" />
                             </div>
                             <div class="col-md-6 d-flex align-items-center">
                                 <div class="text-center px-5">
@@ -348,7 +349,7 @@
                 ?>
 
             <?php } ?>
-
+            </div>
         </div>
         <!---------------- End Featured Area ---------------->
 
@@ -362,7 +363,7 @@
                     </div>
                     <?php foreach ($services as $service) { ?>
                         <div class="col-md-4 mb-4">
-                            <img src="<?php echo $service->img_url; ?>" class="img-fluid" alt="" />
+                            <img loading="lazy" src="<?php echo $service->img_url; ?>" class="img-fluid" alt="" width="350px" height="350px" />
                             <h3 class="mt-3"><?php echo $service->title; ?></h3>
                             <p><?php echo $service->description; ?></p>
                         </div>
@@ -387,7 +388,7 @@
                     foreach ($featureds as $featured) {
                         ?>
                         <div class="col-md-4 mb-4">
-                            <img src="<?php echo $featured->img_url; ?>" height="200px" alt="" />
+                            <img loading="lazy" src="<?php echo $featured->img_url; ?>" height="200px" alt="" />
                             <h4 class="mt-3"><?php echo $featured->name; ?></h4>
                             <p>
                                 <?php echo $featured->description; ?>    
@@ -410,7 +411,7 @@
                     <?php foreach ($images as $image) { ?>
                         <div class="col-md-4 mb-4">
                             <a href="<?php echo $image->img; ?>" class="gallery-item">
-                                <img src="<?php echo $image->img; ?>" class="img-fluid" alt="" />
+                                <img loading="lazy" src="<?php echo $image->img; ?>" class="img-fluid" alt="" />
                             </a>
                         </div>
                     <?php } ?>
@@ -427,7 +428,7 @@
                     <?php foreach ($reviews as $review) { ?>
                         <div>
                             <div class="card text-center">
-                                <img class="card-img-top" src="<?php echo $review->img; ?>" alt="" />
+                                <img loading="lazy" class="card-img-top" src="<?php echo $review->img; ?>" alt="" />
                                 <div class="card-body">
                                     <h5>
                                         <?php echo $review->name; ?> <br />
@@ -518,7 +519,7 @@
             </div>
         </div>
         <div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801983917701!2d36.79113861475387!3d-1.2932694990567293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe33add962384e14c!2zMcKwMTcnMzUuOCJTIDM2wrA0NyczNi4wIkU!5e0!3m2!1sen!2ske!4v1647586117923!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe title="google maps" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801983917701!2d36.79113861475387!3d-1.2932694990567293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe33add962384e14c!2zMcKwMTcnMzUuOCJTIDM2wrA0NyczNi4wIkU!5e0!3m2!1sen!2ske!4v1647586117923!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" ></iframe>
         </div>
         <!---------------- End Footer Area ---------------->
 
