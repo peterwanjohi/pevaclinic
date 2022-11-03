@@ -43,11 +43,13 @@ class Gallery extends MX_Controller {
             if (!empty($id)) {
                 redirect("gallery/editGallery?id=$id");
             } else {
+                var_dump('here');
                 $this->load->view('home/dashboard'); // just the header file
                 $this->load->view('add_new');
                 $this->load->view('home/footer'); // just the header file
             }
         } else {
+            var_dump('here');
             $file_name = $_FILES['img_url']['name'];
             $file_name_pieces = explode('_', $file_name);
             $new_file_name = '';
@@ -65,9 +67,9 @@ class Gallery extends MX_Controller {
                 'upload_path' => "./uploads/",
                 'allowed_types' => "gif|jpg|png|jpeg|pdf",
                 'overwrite' => False,
-                'max_size' => "20480000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-                'max_height' => "10000",
-                'max_width' => "10000"
+                'max_size' => "2048", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+                'max_height' => "400",
+                'max_width' => "400"
             );
 
             $this->load->library('Upload', $config);

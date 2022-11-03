@@ -73,6 +73,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Image</label>
+                                            <small>Recommended file size (370 x 300)</small>
                                             <input type="file" name="img_url">
                                         </div>
                                         <input type="hidden" name="id" value='<?php

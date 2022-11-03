@@ -1,4 +1,3 @@
-
 <!--sidebar end-->
 <!--main content start-->
 <section id="main-content">
@@ -7,7 +6,7 @@
         <section class="panel">
             <header class="panel-heading">
                 <?php echo lang('gridsection'); ?>
-                <div class="col-md-4 no-print pull-right"> 
+                <div class="col-md-4 no-print pull-right">
                     <a data-toggle="modal" href="#myModal">
                         <div class="btn-group pull-right">
                             <button id="" class="btn green btn-xs">
@@ -34,40 +33,38 @@
                         </thead>
                         <tbody>
 
-                        <style>
+                            <style>
+                                .img_url {
+                                    height: 20px;
+                                    width: 20px;
+                                    background-size: contain;
+                                    max-height: 20px;
+                                    border-radius: 100px;
+                                }
+                            </style>
 
-                            .img_url{
-                                height:20px;
-                                width:20px;
-                                background-size: contain; 
-                                max-height:20px;
-                                border-radius: 100px;
-                            }
-
-                        </style>
-
-                        <?php foreach ($gridsections as $gridsection) { ?>
-                            <tr class="">
-                                <td style="width:10%;"><img style="width:95%;" src="<?php echo $gridsection->img; ?>"></td>
-                                <td><?php echo $gridsection->category; ?></td>
-                                <td> <?php echo $gridsection->title; ?></td>
-                                <td><?php echo $gridsection->description; ?></td>
-                                <td><?php echo $gridsection->position; ?></td>
-                                <td>
-                                    <?php
-                                    if ($gridsection->status == 'Active') {
-                                        echo lang('active');
-                                    } else {
-                                        echo lang('in_active');
-                                    }
-                                    ?>
-                                </td>
-                                <td class="no-print">
-                                    <button type="button" class="btn btn-info btn-xs btn_width editbutton" title="<?php echo lang('edit'); ?>" data-toggle="modal" data-id="<?php echo $gridsection->id; ?>"><i class="fa fa-edit"> </i></button>   
-                                    <a class="btn btn-info btn-xs btn_width delete_button" title="<?php echo lang('delete'); ?>" href="gridsection/delete?id=<?php echo $gridsection->id; ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"> </i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                            <?php foreach ($gridsections as $gridsection) { ?>
+                                <tr class="">
+                                    <td style="width:10%;"><img style="width:95%;" src="<?php echo $gridsection->img; ?>"></td>
+                                    <td><?php echo $gridsection->category; ?></td>
+                                    <td> <?php echo $gridsection->title; ?></td>
+                                    <td><?php echo $gridsection->description; ?></td>
+                                    <td><?php echo $gridsection->position; ?></td>
+                                    <td>
+                                        <?php
+                                        if ($gridsection->status == 'Active') {
+                                            echo lang('active');
+                                        } else {
+                                            echo lang('in_active');
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="no-print">
+                                        <button type="button" class="btn btn-info btn-xs btn_width editbutton" title="<?php echo lang('edit'); ?>" data-toggle="modal" data-id="<?php echo $gridsection->id; ?>"><i class="fa fa-edit"> </i></button>
+                                        <a class="btn btn-info btn-xs btn_width delete_button" title="<?php echo lang('delete'); ?>" href="gridsection/delete?id=<?php echo $gridsection->id; ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"> </i></a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
 
 
 
@@ -121,35 +118,36 @@
                         <label for="exampleInputEmail1"><?php echo lang('status'); ?></label>
                         <select class="form-control m-bot15" name="status" value=''>
                             <option value="Active" <?php
-                            if (!empty($setval)) {
-                                if ($gridsection->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gridsection->status)) {
-                                if ($gridsection->status == 'Active') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('active'); ?> 
+                                                    if (!empty($setval)) {
+                                                        if ($gridsection->status == set_value('status')) {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    if (!empty($gridsection->status)) {
+                                                        if ($gridsection->status == 'Active') {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    ?>> <?php echo lang('active'); ?>
                             </option>
                             <option value="Inactive" <?php
-                            if (!empty($setval)) {
-                                if ($gridsection->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gridsection->status)) {
-                                if ($gridsection->status == 'Inactive') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('in_active'); ?> 
+                                                        if (!empty($setval)) {
+                                                            if ($gridsection->status == set_value('status')) {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        if (!empty($gridsection->status)) {
+                                                            if ($gridsection->status == 'Inactive') {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        ?>> <?php echo lang('in_active'); ?>
                             </option>
                         </select>
                     </div>
                     <div class="form-group last">
                         <label class="control-label">Image Upload</label>
+                        <small>Recommended dimensions 973 x 507</small>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
@@ -160,7 +158,7 @@
                                     <span class="btn btn-white btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                        <input type="file" class="default" name="img_url"/>
+                                        <input type="file" class="default" name="img_url" />
                                     </span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
                                 </div>
@@ -196,7 +194,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">  <?php echo lang('edit_gridsection'); ?></h4>
+                <h4 class="modal-title"> <?php echo lang('edit_gridsection'); ?></h4>
             </div>
 
             <div class="modal-body">
@@ -222,46 +220,47 @@
                         <label for="exampleInputEmail1"><?php echo lang('status'); ?></label>
                         <select class="form-control m-bot15" name="status" value=''>
                             <option value="Active" <?php
-                            if (!empty($setval)) {
-                                if ($gridsection->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gridsection->status)) {
-                                if ($gridsection->status == 'Active') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('active'); ?> 
+                                                    if (!empty($setval)) {
+                                                        if ($gridsection->status == set_value('status')) {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    if (!empty($gridsection->status)) {
+                                                        if ($gridsection->status == 'Active') {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    ?>> <?php echo lang('active'); ?>
                             </option>
                             <option value="Inactive" <?php
-                            if (!empty($setval)) {
-                                if ($gridsection->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gridsection->status)) {
-                                if ($gridsection->status == 'Inactive') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('in_active'); ?> 
+                                                        if (!empty($setval)) {
+                                                            if ($gridsection->status == set_value('status')) {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        if (!empty($gridsection->status)) {
+                                                            if ($gridsection->status == 'Inactive') {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        ?>> <?php echo lang('in_active'); ?>
                             </option>
                         </select>
                     </div>
                     <div class="form-group last">
                         <label class="control-label">Image Upload</label>
+                        <small>Recommended dimensions 973 x 507</small>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="//www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" id="img" alt="" />
+                                    <img src="//www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" id="img" alt="gridimage" />
                                 </div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
                                     <span class="btn btn-white btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                        <input type="file" class="default" name="img_url"/>
+                                        <input type="file" id="EditGridImage" class="default" name="img_url" />
                                     </span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
                                 </div>
@@ -285,69 +284,97 @@
 
 <script src="common/js/codearistos.min.js"></script>
 <script type="text/javascript">
-                                    $(document).ready(function () {
-                                    $(".editbutton").click(function (e) {
-                                    e.preventDefault(e);
-                                    // Get the record's ID via attribute  
-                                    var iid = $(this).attr('data-id');
-                                    $('#editSlideForm').trigger("reset");
-                                    $("#img").attr("src", "uploads/cardiology-patient-icon-vector-6244713.jpg");
-                                    $.ajax({
-                                    url: 'gridsection/editGridsectionByJason?id=' + iid,
-                                            method: 'GET',
-                                            data: '',
-                                            dataType: 'json',
-                                    }).success(function (response) {
-                                    // Populate the form fields with the data returned from server
-                                    $('#editSlideForm').find('[name="id"]').val(response.gridsection.id).end()
-                                            $('#editSlideForm').find('[name="title"]').val(response.gridsection.title).end()
-                                            $('#editSlideForm').find('[name="category"]').val(response.gridsection.category).end()
-                                            $('#editSlideForm').find('[name="description"]').val(response.gridsection.description).end()
-                                            $('#editSlideForm').find('[name="position"]').val(response.gridsection.position).end()
-                                            $('#editSlideForm').find('[name="status"]').val(response.gridsection.status).end()
+    $(document).ready(function() {
+        $(".editbutton").click(function(e) {
+            e.preventDefault(e);
+            // Get the record's ID via attribute  
+            var iid = $(this).attr('data-id');
+            $('#editSlideForm').trigger("reset");
+            $("#img").attr("src", "uploads/cardiology-patient-icon-vector-6244713.jpg");
+            $.ajax({
+                url: 'gridsection/editGridsectionByJason?id=' + iid,
+                method: 'GET',
+                data: '',
+                dataType: 'json',
+            }).success(function(response) {
+                // Populate the form fields with the data returned from server
+                $('#editSlideForm').find('[name="id"]').val(response.gridsection.id).end()
+                $('#editSlideForm').find('[name="title"]').val(response.gridsection.title).end()
+                $('#editSlideForm').find('[name="category"]').val(response.gridsection.category).end()
+                $('#editSlideForm').find('[name="description"]').val(response.gridsection.description).end()
+                $('#editSlideForm').find('[name="position"]').val(response.gridsection.position).end()
+                $('#editSlideForm').find('[name="status"]').val(response.gridsection.status).end()
 
-                                            if (typeof response.gridsection.img !== 'undefined' && response.gridsection.img != '') {
-                                    $("#img").attr("src", response.gridsection.img);
-                                    }
+                if (typeof response.gridsection.img !== 'undefined' && response.gridsection.img != '') {
+                    $("#img").attr("src", response.gridsection.img);
+                }
 
-                                    $('#myModal2').modal('show');
-                                    });
-                                    });
-                                    });</script>
+                $('#myModal2').modal('show');
+            });
+        });
+    });
+</script>
 
 
 
 
 <script>
-    $(document).ready(function () {
-    var = $('#editable-sample').DataTable({
-    responsive: true,
+    $(document).ready(function() {
+        var table = $('#editable-sample').DataTable({
+            responsive: true,
             dom: "<'row'<'col-sm-3'l><'col-sm-5 text-center'B><'col-sm-4'f>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        
-             buttons: [
-                {extend: 'copyHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'excelHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'csvHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'pdfHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'print', exportOptions: {columns: [1, 2, 3, 4], }},
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+
+            buttons: [{
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'csvHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
             ],
             aLengthMenu: [
-            [10, 25, 50, 100, - 1],
-            [10, 25, 50, 100, "All"]
+                [10, 25, 50, 100, -1],
+                [10, 25, 50, 100, "All"]
             ],
-            iDisplayLength: - 1,
-            "order": [[0, "desc"]],
+            iDisplayLength: -1,
+            "order": [
+                [0, "desc"]
+            ],
             "language": {
-            "lengthMenu": "_MENU_",
-                    search: "_INPUT_",
-                    "url": "common/assets/DataTables/languages/<?php echo $this->language; ?>.json"
+                "lengthMenu": "_MENU_",
+                search: "_INPUT_",
+                "url": "common/assets/DataTables/languages/<?php echo $this->language; ?>.json"
             },
-    });
-    table.buttons().container()
+        });
+        table.buttons().container()
             .appendTo('.custom_buttons');
-    });</script>
+    });
+</script>
 
 
 
@@ -355,7 +382,7 @@
 
 
 <script>
-    $(document).ready(function () {
-    $(".flashmessage").delay(3000).fadeOut(100);
+    $(document).ready(function() {
+        $(".flashmessage").delay(3000).fadeOut(100);
     });
 </script>

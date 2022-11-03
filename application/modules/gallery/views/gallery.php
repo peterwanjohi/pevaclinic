@@ -1,4 +1,3 @@
-
 <!--sidebar end-->
 <!--main content start-->
 <section id="main-content">
@@ -7,7 +6,7 @@
         <section class="panel">
             <header class="panel-heading">
                 <?php echo lang('gallery'); ?>
-                <div class="col-md-4 no-print pull-right"> 
+                <div class="col-md-4 no-print pull-right">
                     <a data-toggle="modal" href="#myModal">
                         <div class="btn-group pull-right">
                             <button id="" class="btn green btn-xs">
@@ -31,37 +30,35 @@
                         </thead>
                         <tbody>
 
-                        <style>
+                            <style>
+                                .img_url {
+                                    height: 20px;
+                                    width: 20px;
+                                    background-size: contain;
+                                    max-height: 20px;
+                                    border-radius: 100px;
+                                }
+                            </style>
 
-                            .img_url{
-                                height:20px;
-                                width:20px;
-                                background-size: contain; 
-                                max-height:20px;
-                                border-radius: 100px;
-                            }
-
-                        </style>
-
-                        <?php foreach ($gallerys as $gallery) { ?>
-                            <tr class="">
-                                <td style="width:10%;"><img style="width:95%;" src="<?php echo $gallery->img; ?>"></td>
-                                <td><?php echo $gallery->position; ?></td>
-                                <td>
-                                    <?php
-                                    if ($gallery->status == 'Active') {
-                                        echo lang('active');
-                                    } else {
-                                        echo lang('in_active');
-                                    }
-                                    ?>
-                                </td>
-                                <td class="no-print">
-                                    <button type="button" class="btn btn-info btn-xs btn_width editbutton" title="<?php echo lang('edit'); ?>" data-toggle="modal" data-id="<?php echo $gallery->id; ?>"><i class="fa fa-edit"> </i></button>   
-                                    <a class="btn btn-info btn-xs btn_width delete_button" title="<?php echo lang('delete'); ?>" href="gallery/delete?id=<?php echo $gallery->id; ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"> </i></a>
-                                </td>
-                            </tr>
-                        <?php } ?>
+                            <?php foreach ($gallerys as $gallery) { ?>
+                                <tr class="">
+                                    <td style="width:10%;"><img style="width:95%;" src="<?php echo $gallery->img; ?>"></td>
+                                    <td><?php echo $gallery->position; ?></td>
+                                    <td>
+                                        <?php
+                                        if ($gallery->status == 'Active') {
+                                            echo lang('active');
+                                        } else {
+                                            echo lang('in_active');
+                                        }
+                                        ?>
+                                    </td>
+                                    <td class="no-print">
+                                        <button type="button" class="btn btn-info btn-xs btn_width editbutton" title="<?php echo lang('edit'); ?>" data-toggle="modal" data-id="<?php echo $gallery->id; ?>"><i class="fa fa-edit"> </i></button>
+                                        <a class="btn btn-info btn-xs btn_width delete_button" title="<?php echo lang('delete'); ?>" href="gallery/delete?id=<?php echo $gallery->id; ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-trash"> </i></a>
+                                    </td>
+                                </tr>
+                            <?php } ?>
 
 
 
@@ -102,35 +99,36 @@
                         <label for="exampleInputEmail1"><?php echo lang('status'); ?></label>
                         <select class="form-control m-bot15" name="status" value=''>
                             <option value="Active" <?php
-                            if (!empty($setval)) {
-                                if ($gallery->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gallery->status)) {
-                                if ($gallery->status == 'Active') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('active'); ?> 
+                                                    if (!empty($setval)) {
+                                                        if ($gallery->status == set_value('status')) {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    if (!empty($gallery->status)) {
+                                                        if ($gallery->status == 'Active') {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    ?>> <?php echo lang('active'); ?>
                             </option>
                             <option value="Inactive" <?php
-                            if (!empty($setval)) {
-                                if ($gallery->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gallery->status)) {
-                                if ($gallery->status == 'Inactive') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('in_active'); ?> 
+                                                        if (!empty($setval)) {
+                                                            if ($gallery->status == set_value('status')) {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        if (!empty($gallery->status)) {
+                                                            if ($gallery->status == 'Inactive') {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        ?>> <?php echo lang('in_active'); ?>
                             </option>
                         </select>
                     </div>
                     <div class="form-group last">
                         <label class="control-label">Image Upload</label>
+                        <small>Recommended file size (370 x 300)</small>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
@@ -141,7 +139,7 @@
                                     <span class="btn btn-white btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                        <input type="file" class="default" name="img_url" required/>
+                                        <input type="file" class="default" name="img_url" required />
                                     </span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
                                 </div>
@@ -177,7 +175,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">  <?php echo lang('edit_image'); ?></h4>
+                <h4 class="modal-title"> <?php echo lang('edit_image'); ?></h4>
             </div>
 
             <div class="modal-body">
@@ -190,35 +188,36 @@
                         <label for="exampleInputEmail1"><?php echo lang('status'); ?></label>
                         <select class="form-control m-bot15" name="status" value=''>
                             <option value="Active" <?php
-                            if (!empty($setval)) {
-                                if ($gallery->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gallery->status)) {
-                                if ($gallery->status == 'Active') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('active'); ?> 
+                                                    if (!empty($setval)) {
+                                                        if ($gallery->status == set_value('status')) {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    if (!empty($gallery->status)) {
+                                                        if ($gallery->status == 'Active') {
+                                                            echo 'selected';
+                                                        }
+                                                    }
+                                                    ?>> <?php echo lang('active'); ?>
                             </option>
                             <option value="Inactive" <?php
-                            if (!empty($setval)) {
-                                if ($gallery->status == set_value('status')) {
-                                    echo 'selected';
-                                }
-                            }
-                            if (!empty($gallery->status)) {
-                                if ($gallery->status == 'Inactive') {
-                                    echo 'selected';
-                                }
-                            }
-                            ?> > <?php echo lang('in_active'); ?> 
+                                                        if (!empty($setval)) {
+                                                            if ($gallery->status == set_value('status')) {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        if (!empty($gallery->status)) {
+                                                            if ($gallery->status == 'Inactive') {
+                                                                echo 'selected';
+                                                            }
+                                                        }
+                                                        ?>> <?php echo lang('in_active'); ?>
                             </option>
                         </select>
                     </div>
                     <div class="form-group last">
                         <label class="control-label">Image Upload</label>
+                        <small>Recommended maximum file dimensions (370 x 300) size upto 2mb</small>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
@@ -229,7 +228,7 @@
                                     <span class="btn btn-white btn-file">
                                         <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Select image</span>
                                         <span class="fileupload-exists"><i class="fa fa-undo"></i> Change</span>
-                                        <input type="file" class="default" name="img_url"/>
+                                        <input type="file" class="default" name="img_url" />
                                     </span>
                                     <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Remove</a>
                                 </div>
@@ -253,66 +252,94 @@
 
 <script src="common/js/codearistos.min.js"></script>
 <script type="text/javascript">
-                                    $(document).ready(function () {
-                                    $(".editbutton").click(function (e) {
-                                    e.preventDefault(e);
-                                    // Get the record's ID via attribute  
-                                    var iid = $(this).attr('data-id');
-                                    $('#editSlideForm').trigger("reset");
-                                    $("#img").attr("src", "uploads/cardiology-patient-icon-vector-6244713.jpg");
-                                    $.ajax({
-                                    url: 'gallery/editGalleryByJason?id=' + iid,
-                                            method: 'GET',
-                                            data: '',
-                                            dataType: 'json',
-                                    }).success(function (response) {
-                                    // Populate the form fields with the data returned from server
-                                    $('#editSlideForm').find('[name="id"]').val(response.gallery.id).end()
-                                            $('#editSlideForm').find('[name="position"]').val(response.gallery.position).end()
-                                            $('#editSlideForm').find('[name="status"]').val(response.gallery.status).end()
+    $(document).ready(function() {
+        $(".editbutton").click(function(e) {
+            e.preventDefault(e);
+            // Get the record's ID via attribute  
+            var iid = $(this).attr('data-id');
+            $('#editSlideForm').trigger("reset");
+            $("#img").attr("src", "uploads/cardiology-patient-icon-vector-6244713.jpg");
+            $.ajax({
+                url: 'gallery/editGalleryByJason?id=' + iid,
+                method: 'GET',
+                data: '',
+                dataType: 'json',
+            }).success(function(response) {
+                // Populate the form fields with the data returned from server
+                $('#editSlideForm').find('[name="id"]').val(response.gallery.id).end()
+                $('#editSlideForm').find('[name="position"]').val(response.gallery.position).end()
+                $('#editSlideForm').find('[name="status"]').val(response.gallery.status).end()
 
-                                            if (typeof response.gallery.img !== 'undefined' && response.gallery.img != '') {
-                                    $("#img").attr("src", response.gallery.img);
-                                    }
+                if (typeof response.gallery.img !== 'undefined' && response.gallery.img != '') {
+                    $("#img").attr("src", response.gallery.img);
+                }
 
-                                    $('#myModal2').modal('show');
-                                    });
-                                    });
-                                    });</script>
+                $('#myModal2').modal('show');
+            });
+        });
+    });
+</script>
 
 
 
 
 <script>
-    $(document).ready(function () {
-    var = $('#editable-sample').DataTable({
-    responsive: true,
+    $(document).ready(function() {
+        var table = $('#editable-sample').DataTable({
+            responsive: true,
             dom: "<'row'<'col-sm-3'l><'col-sm-5 text-center'B><'col-sm-4'f>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-5'i><'col-sm-7'p>>",
-        
-             buttons: [
-                {extend: 'copyHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'excelHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'csvHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'pdfHtml5', exportOptions: {columns: [1, 2, 3, 4], }},
-                {extend: 'print', exportOptions: {columns: [1, 2, 3, 4], }},
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+
+            buttons: [{
+                    extend: 'copyHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'excelHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'csvHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: [1, 2, 3, 4],
+                    }
+                },
             ],
             aLengthMenu: [
-            [10, 25, 50, 100, - 1],
-            [10, 25, 50, 100, "All"]
+                [10, 25, 50, 100, -1],
+                [10, 25, 50, 100, "All"]
             ],
-            iDisplayLength: - 1,
-            "order": [[0, "desc"]],
+            iDisplayLength: -1,
+            "order": [
+                [0, "desc"]
+            ],
             "language": {
-            "lengthMenu": "_MENU_",
-                    search: "_INPUT_",
-                    "url": "common/assets/DataTables/languages/<?php echo $this->language; ?>.json"
+                "lengthMenu": "_MENU_",
+                search: "_INPUT_",
+                "url": "common/assets/DataTables/languages/<?php echo $this->language; ?>.json"
             },
-    });
-    table.buttons().container()
+        });
+        table.buttons().container()
             .appendTo('.custom_buttons');
-    });</script>
+    });
+</script>
 
 
 
@@ -320,7 +347,7 @@
 
 
 <script>
-    $(document).ready(function () {
-    $(".flashmessage").delay(3000).fadeOut(100);
+    $(document).ready(function() {
+        $(".flashmessage").delay(3000).fadeOut(100);
     });
 </script>

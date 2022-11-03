@@ -74,9 +74,9 @@ class Gridsection extends MX_Controller {
                 'upload_path' => "./uploads/",
                 'allowed_types' => "gif|jpg|png|jpeg|pdf",
                 'overwrite' => False,
-                'max_size' => "20480000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-                'max_height' => "10000",
-                'max_width' => "10000"
+                'max_size' => "2048", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+                'max_height' => "1000",
+                'max_width' => "800"
             );
 
             $this->load->library('Upload', $config);
