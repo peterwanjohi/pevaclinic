@@ -79,7 +79,7 @@
                             <?php
                             if (!empty($settings->logo)) {
                                 if (file_exists($settings->logo)) {
-                                    echo '<img class="logo img-fluid" width="200" src=' . $settings->logo . '>';
+                                    echo '<img alt="logo" class="logo img-fluid" width="200" src=' . $settings->logo . '>';
                                 } else {
                                     echo $title[0] . '<span> ' . $title[1] . '</span>';
                                 }
@@ -321,7 +321,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6" style="padding: 0;">
-                                <img  src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="" />
+                                <img  src="<?php echo $gridsection->img; ?>" class="img-fluid float-right" alt="grid" />
                             </div>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
                     <div class="featured_top">
                         <div class="row">
                             <div class="col-md-6" style="padding: 0;">
-                                <img   src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="" />
+                                <img   src="<?php echo $gridsection->img; ?>" class="img-fluid" alt="grid" />
                             </div>
                             <div class="col-md-6 d-flex align-items-center">
                                 <div class="text-center px-5">
@@ -363,7 +363,7 @@
                     </div>
                     <?php foreach ($services as $service) { ?>
                         <div class="col-md-4 mb-4">
-                            <img loading="lazy" src="<?php echo $service->img_url; ?>" class="img-fluid" alt="" width="350px" height="350px" />
+                            <img loading="lazy" src="<?php echo $service->img_url; ?>" class="img-fluid" alt="" width="350px" height="350px" alt="service" />
                             <h3 class="mt-3"><?php echo $service->title; ?></h3>
                             <p><?php echo $service->description; ?></p>
                         </div>
@@ -388,7 +388,7 @@
                     foreach ($featureds as $featured) {
                         ?>
                         <div class="col-md-4 mb-4">
-                            <img loading="lazy" src="<?php echo $featured->img_url; ?>" height="200px" alt="" />
+                            <img loading="lazy" src="<?php echo $featured->img_url; ?>" height="200px" alt="featured" />
                             <h4 class="mt-3"><?php echo $featured->name; ?></h4>
                             <p>
                                 <?php echo $featured->description; ?>    
@@ -411,7 +411,7 @@
                     <?php foreach ($images as $image) { ?>
                         <div class="col-md-4 mb-4">
                             <a href="<?php echo $image->img; ?>" class="gallery-item">
-                                <img loading="lazy" src="<?php echo $image->img; ?>" class="img-fluid" alt="" />
+                                <img loading="lazy" src="<?php echo $image->img; ?>" class="img-fluid" alt="gallery-item" />
                             </a>
                         </div>
                     <?php } ?>
@@ -428,7 +428,7 @@
                     <?php foreach ($reviews as $review) { ?>
                         <div>
                             <div class="card text-center">
-                                <img loading="lazy" class="card-img-top" src="<?php echo $review->img; ?>" alt="" />
+                                <img loading="lazy" class="card-img-top" src="<?php echo $review->img; ?>" alt="review" />
                                 <div class="card-body">
                                     <h5>
                                         <?php echo $review->name; ?> <br />
@@ -452,7 +452,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <img src="<?php echo $settings->logo; ?>" class="img-fluid">
+                        <img src="<?php echo $settings->logo; ?>" class="img-fluid" alt="logo">
 
                     </div>
                     <div class="col-md-3 mb-3">

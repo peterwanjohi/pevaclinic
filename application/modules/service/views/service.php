@@ -92,6 +92,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1"><?php echo lang('image'); ?></label>
+                                    <small>Recommended file size (400 x 400)</small>
                         <input type="file" name="img_url">
                     </div>
 
@@ -132,6 +133,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1"><?php echo lang('image'); ?></label>
+                                    <small>Recommended file size (400 x 400)</small>
                         <input type="file" name="img_url">
                     </div>
                     <input type="hidden" name="id" value=''>

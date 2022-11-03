@@ -1,4 +1,3 @@
-
 <!--sidebar end-->
 <!--main content start-->
 <section id="main-content">
@@ -25,40 +24,41 @@
                             <div class="col-lg-3"></div>
                         </div>
                         <form role="form" action="service/addNew" method="post" enctype="multipart/form-data">
-                            <div class="form-group">    
+                            <div class="form-group">
                                 <label for="exampleInputEmail1"><?php echo lang('title'); ?></label>
                                 <input type="text" class="form-control" name="title" id="exampleInputEmail1" value='<?php
-                                if (!empty($setval)) {
-                                    echo set_value('title');
-                                }
-                                if (!empty($service->title)) {
-                                    echo $service->title;
-                                }
-                                ?>' placeholder="">   
+                                                                                                                    if (!empty($setval)) {
+                                                                                                                        echo set_value('title');
+                                                                                                                    }
+                                                                                                                    if (!empty($service->title)) {
+                                                                                                                        echo $service->title;
+                                                                                                                    }
+                                                                                                                    ?>' placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1"><?php echo lang('description'); ?></label>
                                 <input type="text" class="form-control" name="description" id="exampleInputEmail1" value='<?php
-                                if (!empty($setval)) {
-                                    echo set_value('description');
-                                }
-                                if (!empty($service->description)) {
-                                    echo $service->description;
-                                }
-                                ?>' placeholder="">
+                                                                                                                            if (!empty($setval)) {
+                                                                                                                                echo set_value('description');
+                                                                                                                            }
+                                                                                                                            if (!empty($service->description)) {
+                                                                                                                                echo $service->description;
+                                                                                                                            }
+                                                                                                                            ?>' placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Image</label>
+                                <small>Recommended file size (400 x 400)</small>
                                 <input type="file" name="img_url">
                             </div>
                             <input type="hidden" name="id" value='<?php
-                            if (!empty($service->id)) {
-                                echo $service->id;
-                            }
-                            ?>'>
+                                                                    if (!empty($service->id)) {
+                                                                        echo $service->id;
+                                                                    }
+                                                                    ?>'>
                             <button type="submit" name="submit" class="btn btn-info">Submit</button>
                         </form>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </section>
