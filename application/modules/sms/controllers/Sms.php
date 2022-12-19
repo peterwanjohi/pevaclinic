@@ -4,6 +4,8 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 use Twilio\Rest\Client;
+use CodeIgniter\HTTP\IncomingRequest;
+
 
 class Sms extends MX_Controller {
 
@@ -78,10 +80,10 @@ class Sms extends MX_Controller {
         $this->form_validation->set_rules('sender', 'Sender', 'trim|min_length[5]|max_length[100]|xss_clean');
         $this->form_validation->set_rules('sid', 'Sid', 'trim|max_length[100]|xss_clean');
 
-// Validating Email Field
+        // Validating Email Field
         $this->form_validation->set_rules('token', 'Token', 'trim|max_length[100]|xss_clean');
 
-// Validating Email Field
+        // Validating Email Field
         $this->form_validation->set_rules('sendernumber', 'Sender Number', 'trim|max_length[100]|xss_clean');
 
         if ($this->form_validation->run() == FALSE) {
@@ -191,6 +193,27 @@ class Sms extends MX_Controller {
                     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                     $smsresult = curl_exec($ch);
+                }
+                // Sending Message Via Mobishastra 
+                if ($smsSettings->name == 'Mobishastra'){
+                    $senderID = $smsSettings->sender;   
+                    $user = $smsSettings->sid;
+                    $password = $smsSettings->password;
+
+                    $to = $key2;
+                    $message = $value2;
+                                     
+
+                    // $url = 'http://mshastra.com/balance.aspx?user=Pyramid&pwd=s6e_6uyu';
+                    $url = 'http://mshastra.com/sendurlcomma.aspx?user=' .$user. '&pwd=s6e_6uyu&senderid=' .$senderID. '&CountryCode=254&mobileno=' .$to. '&msgtext='. urlencode($message);
+                    $ch = curl_init($url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $curl_scraped_page = curl_exec($ch);
+                    curl_close($ch);
+                    echo $curl_scraped_page;
+
+                    // var_dump($curl_scraped_page);
+                    // die();
                 }
             }
         }

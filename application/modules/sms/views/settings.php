@@ -152,6 +152,20 @@
                                                 </div>
 
                                             <?php } ?>
+                                            <?php if ($settings->name == 'Mashastra') { ?>
+                                                <div class="form-group">
+                                                    <label for="senderID">Sender ID</label>
+                                                    <input type="text" name="sid" id="senderID" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="username" >Username</label>
+                                                    <input type="text" name="username" id="username" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password" >Password</label>
+                                                    <input type="text" name="password" id="password" class="form-control">
+                                                </div>
+                                            <?php } ?>
                                             <input type="hidden" name="id" value='<?php
                                             if (!empty($settings->id)) {
                                                 echo $settings->id;
