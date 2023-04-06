@@ -519,7 +519,9 @@
             </div>
         </div>
         <div>
-        <iframe title="google maps" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.801983917701!2d36.79113861475387!3d-1.2932694990567293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe33add962384e14c!2zMcKwMTcnMzUuOCJTIDM2wrA0NyczNi4wIkU!5e0!3m2!1sen!2ske!4v1647586117923!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" ></iframe>
+        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3988.78968085266!2d36.782975214754025!3d-1.301073999051046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMTgnMDMuOSJTIDM2wrA0NycwNi42IkU!5e0!3m2!1sen!2ske!4v1680761898929!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+            
+        <iframe title="google maps" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3988.78968085266!2d36.782975214754025!3d-1.301073999051046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMTgnMDMuOSJTIDM2wrA0NycwNi42IkU!5e0!3m2!1sen!2ske!4v1680761898929!5m2!1sen!2ske" width="100%" height="300" style="border:0;" allowfullscreen="" ></iframe>
         </div>
         <!---------------- End Footer Area ---------------->
 
